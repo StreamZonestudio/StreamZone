@@ -1,0 +1,621 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: white;
+ 
+  
+}
+html, body {
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+
+.icono-usuario {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.icono-usuario img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: rgb(251, 255, 0);
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+  position: fixed; /* fija el sidebar */
+  left: 0;
+  top: 0;
+  z-index: 10; /* para que esté encima de otros elementos */
+ 
+}
+.footer-sidebar {
+  font-size: 12px;
+  color: black;
+  text-align: center;
+  padding: 10px 5px 0;
+  margin-top: auto;
+}
+
+
+.logo img {
+  width: 300px;
+  height: auto;
+  margin-top: 150px; 
+  margin-bottom: 5rem;
+}
+
+
+.animacion-panel {
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  background: transparent;
+   margin-top: 70px;
+}
+
+.animacion-panel img {
+  width: 100%;
+  height: auto;
+}
+
+
+
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  padding: 10px 0;
+  width: 100%;
+  text-align: center;
+  transition: background 0.3s;
+}
+
+
+.menu a:hover {
+  background-color: #333;
+}
+
+.fondo-central {
+  margin-left: 250px; /* para dejar espacio al sidebar */
+  width: calc(100% - 250px); /* resto del ancho total sin el sidebar */
+  height: 100px; /* ajusta la altura según lo que desees */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.fondo-central img {
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
+}
+
+.imagen-principal {
+  position: relative;
+  margin-left: 250px; /* deja espacio para el sidebar */
+  height: 100vh;
+  width: calc(100% - 250px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;  /* Cambiado para apilar verticalmente */
+  justify-content: flex-start; /* arriba */
+  background-color: black;
+  padding: 20px; /* para que no quede pegado al borde */
+ 
+}
+
+.imagen-fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+   
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0.7; /* para dejar la imagen de fondo atenuada */
+}
+
+.bienvenida {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: white;
+  font-size: 2.5em;
+  font-weight: bold;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+  margin-bottom: 10px;
+}
+
+.bienvenida h1 {
+  margin-top: -70px; /* Reduce el margen superior para subir el texto */
+  margin-bottom: 0;
+}
+.bienvenida img {
+  height: 170px;
+  width: auto;
+   margin-top: 10px;
+}
+
+/* Contenedor del texto y botón en columna */
+.contenedor-bienvenida {
+  margin-left: 20px; /* para que esté pegado al panel izquierdo */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* alinea todo a la izquierda */
+  color: white;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+.boton-cargar {   
+  margin-top: -50px;/* quitar márgenes extra */
+  align-self: flex-start; /* pegar a la izquierda */
+   margin-left: 30px; /* para que esté pegado al panel izquierdo */
+}
+
+.boton-cargar button {
+  background-color: rgb(255, 238, 0);
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+.boton-cargar button:hover {
+  background-color: #ffffff;
+}
+
+.bienvenida,
+.bienvenida img,
+.boton-cargar {
+  opacity: 1 !important;      /* Fuerza opacidad total */
+  background-color: transparent; /* Para que el fondo sea claro, si aplica */
+  filter: none !important;    /* Quita filtros que afecten visibilidad */
+  color: white;               /* El texto en blanco (ajústalo si quieres) */
+  z-index: 10;                /* Para asegurar que estén arriba */
+}
+
+.hamburger-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.hamburger-btn {
+  background-color: #FFD700;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  color: #000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: background-color 0.3s;
+}
+
+.hamburger-btn:hover {
+  background-color: #e6c200;
+}
+
+.social-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  transform: translateY(20px); /* inicia ligeramente abajo */
+}
+
+.social-menu.show {
+  max-height: 300px; /* altura suficiente para los íconos */
+  opacity: 1;
+  transform: translateY(0); /* sube a su lugar */
+}
+
+
+.social-menu img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #FFD700;
+  padding: 6px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s;
+}
+
+.social-menu img:hover {
+  transform: scale(1.1);
+}
+.inicio-panel {
+      padding: 20px;
+      color: white;
+      text-align: left;
+      position: relative;
+      max-width: 1000px;
+      margin-left: 270px;
+    }
+
+ .tabs-container {
+  padding: 40px 20px;
+  z-index: 2;
+  position: relative;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 20px;
+  margin-left: 220px; /* Ajusta este valor a tu gusto */
+}
+
+.tab {
+  background: none;
+  border: none;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  color: white;
+}
+
+.tab.active {
+  color: rgb(0, 0, 0);
+}
+
+.tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: yellow;
+  border-radius: 2px;
+}
+
+.tab-content {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.6s ease;
+  transform: translateX(50px);
+}
+
+.tab-content.active {
+  opacity: 1;
+  max-height: 1000px;
+  transform: translateX(0);
+}
+
+.seccion-inicio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.img-inicio {
+  width: 210px;
+  max-height: 370px;
+  object-fit: contain;
+  border-radius: 20px;
+   margin-top: -21px; /* súbela */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.inicio-info {
+  background-color: #666;
+  color: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 400px;            /* Fuerza ancho fijo */
+  min-height: 260px;       /* Altura mínima uniforme */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.inicio-info h2 {
+  color: yellow;
+  margin-bottom: 15px;
+}
+.inicio-info ul {
+  list-style: none;
+  padding: 0;
+}
+.inicio-info li {
+  padding: 6px 0;
+  font-size: 15px;
+}
+
+.img-garantia {
+  width: 210px;
+  max-height: 330px;
+  object-fit: contain;
+  border-radius: 20px;
+   margin-top: 10px; /* súbela */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+@media screen and (max-width: 768px) {
+
+  /* 🔸 Panel amarillo superior */
+  .sidebar {
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    top: 0px; /* ✅ lo baja un poco */
+    left: 0;
+    background-color: rgb(251, 255, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  }
+
+  .logo img {
+    width: 190px;
+    margin: 0;
+    
+  }
+
+
+  /* 🔸 Fondo y contenido principal */
+  .imagen-principal {
+    margin-left: 0;
+    width: 100%;
+    padding: 100px 10px 20px;
+    height: 100vh;
+  }
+
+ .imagen-fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* 🔥 Ocupa todo el alto */
+  object-fit: cover; /* 🔥 Hace que la imagen cubra todo, recortando si es necesario */
+  z-index: 1;
+  opacity: 0.7;
+}
+
+
+  /* 🔸 Bienvenida */
+  .bienvenida {
+    flex-direction: row; /* ✅ Alineado en fila */
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    font-size: 1.5em; /* ✅ Más pequeño */
+    margin-top: 20px;
+  }
+
+  .bienvenida h1 {
+    margin: 0;
+    font-size: 1em;
+  }
+
+  .bienvenida img {
+    height: 60px;
+    margin-left: 15px; /* ✅ La empuja un poco a la derecha */
+  }
+
+  /* 🔸 Contenedor texto */
+  .contenedor-bienvenida {
+    margin: 0;
+    align-items: center;
+    text-align: center;
+    
+  }
+
+  /* 🔸 Botón cargar saldo */
+  .boton-cargar {
+    margin: 10px 0;
+    align-self: center;
+    
+  }
+
+  .boton-cargar button {
+    padding: 8px 16px;
+    font-size: 13px;
+    border-radius: 20px;
+    
+  }
+
+  /* 🔸 Tabs si los dejas */
+  .tabs {
+    margin: 20px 0;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .tab {
+    font-size: 15px;
+  }
+
+  /* 🔸 Panel inicio con Homero y panel al lado */
+  .seccion-inicio {
+    flex-direction: row; /* ✅ En fila */
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: nowrap;
+  }
+  .animacion-panel img,
+  .animacion-panel{
+    display: none;
+  }
+
+  .seccion-inicio {
+    flex-direction: column; /* 🔥 Organiza en vertical */
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .img-inicio {
+   display: none;
+  }
+
+  .inicio-info {
+    width: 90%; /* 🔥 Más ancho en móvil */
+    padding: 12px;
+    margin: 0 auto;
+    background-color: #666;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .inicio-info h2 {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  .inicio-info li {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .img-garantia {
+    width: 100px;
+    height: auto;
+    margin-top: 10px;
+  }
+
+  /* 🔸 Fondo central si lo usas */
+  .fondo-central {
+    margin-left: 0;
+    width: 100%;
+    height: 70px;
+  }
+
+  .fondo-central img {
+    width: 150px;
+    height: auto;
+  }
+
+  /* 🔸 Menú hamburguesa más pequeño */
+  .hamburger-container {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .hamburger-btn {
+    background-color: #FFD700;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px; /* ✅ Más pequeño */
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    color: #000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+
+  .hamburger-btn:hover {
+    background-color: #e6c200;
+  }
+
+  .social-menu img {
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+  }
+  .menu {
+    display: flex;
+    flex-direction: row; /* 🔥 En fila */
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Espacio entre botones */
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .menu a {
+    padding: 6px 10px;
+    font-size: 13px;
+    color: rgb(0, 0, 0);
+    border-radius: 15px;
+    text-align: center;
+    min-width: 60px;
+    transition: background-color 0.3s;
+  }
+
+  .menu a:hover {
+    background-color: rgb(48, 48, 48);
+  }
+
+.buscador,
+.footer-sidebar{
+  display: none;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
