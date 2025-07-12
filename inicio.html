@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio</title>
+  <link rel="stylesheet" href="inicio.css">
+  <link rel="icon" type="image/png" href="images/icono.png">
+  
+</head>
+<body>
+  <div class="sidebar">
+    <div class="icono-usuario">
+      <img src="images/starzone_login_icono.png" alt="Usuario" onclick="location.href='index.html'" />
+    </div>
+    <div class="logo">
+      <img src="images/starzone_logo_panel.png" alt="Logo">
+    </div>
+    
+    <nav class="menu">
+      <a href="inicio.html">Inicio</a>
+      <a href="tienda.html">Tienda</a>
+      <a id="botonSaldo" class="saldo-boton">Saldo: </a> 
+    </nav>
+<div class="animacion-panel">
+  <img id="animador" src="images/animacion5.gif" alt="animacion" style="width:150px; height:150px;">
+</div>
+
+
+    <div class="footer-sidebar">
+  StreamZone © 2023. Todos los derechos reservados.
+</div>
+
+  </div>
+
+  <div class="imagen-principal">
+    <img class="imagen-fondo" src="images/starzone_fondo_principio.jpeg" alt="Fondo">
+    <div class="bienvenida">
+      <h1>Bienvenido a</h1>
+      <img src="images/starzone_logo_2.png" alt="Logo"> 
+    </div>
+    <div class="boton-cargar">
+      <a href="https://wa.me/3146079273" target="_blank">
+        <button>Cargar saldo &gt;</button>
+      </a>
+   
+    <div class="tabs-container">
+  <div class="tabs">
+    <button class="tab active" onclick="mostrarTab('atencion')">Atención</button>
+    <button class="tab" onclick="mostrarTab('garantia')">Garantías</button>
+  </div>
+
+  <div class="tab-content active" id="atencion">
+    <div class="seccion-inicio">
+      <img src="images/simson.png" alt="Homer" class="img-inicio">
+      <div class="inicio-info">
+        <h2>🕐 Horarios de Atención</h2>
+        <ul>
+          <li>📅 Trabajamos de lunes a sábados</li>
+          <li>🕙 10:00 A.M. - 12:00 P.M. & 2:00 P.M. - 10:00 P.M.</li>
+          <li>🍽️ Respetar hora de almuerzo: 12:00 P.M. - 2:00 P.M.</li>
+          <li>📌 Domingos y festivos con previo aviso</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="garantia">
+    <div class="seccion-inicio">
+      <img src="images/simsom2.png" alt="Homer 2" class="img-inicio img-garantia">
+      <div class="inicio-info">
+        <h2>📌 Garantías</h2>
+        <ul>
+          <li>🔶 Enviar foto del error o problema.</li>
+          <li>🔶 Datos correspondientes del servicio a revisar.</li>
+          <li>🔶 No hacemos devolución de dinero.</li>
+          <li>🔶 No cambiar ni modificar perfiles. Si lo hace, se bloqueará.</li>
+          <li>🔶 Si adquieres una pantalla, usar en un solo dispositivo.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    </div>
+  </div>
+
+
+
+
+  <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyChR5sX3krnDeB1oNVo7aW9hoLPhJnJpec",
+    authDomain: "streanzone-4c7d5.firebaseapp.com",
+    projectId: "streanzone-4c7d5",
+    storageBucket: "streanzone-4c7d5.appspot.com",
+    messagingSenderId: "817356278560",
+    appId: "1:817356278560:web:142fdf6466f6d20b9f6545"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // ✅ Mostrar saldo desde Firebase
+  async function mostrarSaldo() {
+    const correo = sessionStorage.getItem("usuario");
+    const botonSaldo = document.getElementById("botonSaldo");
+
+    if (correo) {
+      try {
+        const docRef = doc(db, "saldos", correo);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          const saldo = docSnap.data().saldo;
+          const saldoFormateado = parseInt(saldo).toLocaleString("es-CO");
+          botonSaldo.textContent = `Saldo: $${saldoFormateado}`;
+        } else {
+          botonSaldo.textContent = "Saldo: $0";
+        }
+      } catch (error) {
+        console.error("Error al obtener saldo:", error);
+        botonSaldo.textContent = "Saldo: Error";
+      }
+    } else {
+      botonSaldo.textContent = "Saldo: No disponible";
+    }
+  }
+
+  mostrarSaldo();
+
+  // ✅ Cambio de grupo visual
+  let grupoActual = 1;
+  window.mostrarSiguienteGrupo = function () {
+    const grupo1 = document.getElementById("grupo1");
+    const grupo2 = document.getElementById("grupo2");
+
+    if (grupoActual === 1) {
+      grupo1.classList.add("oculto");
+      grupo2.classList.remove("oculto");
+      grupo2.classList.add("mostrado");
+      grupoActual = 2;
+    } else {
+      grupo2.classList.remove("mostrado");
+      grupo2.classList.add("oculto");
+      grupo1.classList.remove("oculto");
+      grupoActual = 1;
+    }
+  };
+
+  // ✅ Menú social
+  window.toggleMenu = function () {
+    const menu = document.getElementById("socialMenu");
+    menu.classList.toggle("show");
+  };
+</script>
+
+
+  <div class="hamburger-container">
+    <button class="hamburger-btn" onclick="toggleMenu()">☰</button>
+    <div class="social-menu" id="socialMenu">
+      <a href="https://wa.me/3146079273" target="_blank">
+        <img src="images/whatsapp.png" alt="WhatsApp">
+      </a>
+      <a href="https://www.facebook.com/share/1Ayuau7av9/?mibextid=wwXIfr" target="_blank">
+        <img src="images/facebook.png" alt="Facebook">
+      </a>
+      <a href="https://www.instagram.com/streamzonestudio?igsh=NTA1MmU1cXpxc3p6" target="_blank">
+        <img src="images/instagram.png" alt="Instagram">
+      </a>
+      <a href="https://youtube.com/@streamzone509?si=PUYFkE-vC2K5xjXV" target="_blank">
+        <img src="images/youtube.png" alt="YouTube">
+      </a>
+    </div>
+  </div>
+<script>
+function mostrarTab(tabId) {
+  const tabs = document.querySelectorAll('.tab');
+  const contents = document.querySelectorAll('.tab-content');
+
+  tabs.forEach(tab => tab.classList.remove('active'));
+  contents.forEach(content => content.classList.remove('active'));
+
+  document.querySelector(`[onclick="mostrarTab('${tabId}')"]`).classList.add('active');
+  document.getElementById(tabId).classList.add('active');
+}
+</script>
+
+<script>
+  const animaciones = [
+    "images/animacion5.gif",    // Animación 1
+    "images/animacion2.gif",
+     "images/animacion3.gif",
+     "images/animacion4.gif",
+        // Animación 2 (ojo: revisa la extensión .gif)
+  ];
+
+  let indice = 0;
+  const animador = document.getElementById("animador");
+
+  setInterval(() => {
+    indice = (indice + 1) % animaciones.length;
+    animador.src = animaciones[indice];
+  }, 6000); // Cambia cada 5 segundos
+</script>
+
+</body>
+</html>
