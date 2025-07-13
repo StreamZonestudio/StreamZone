@@ -58,11 +58,11 @@ html, body {
 
 
 .animacion-panel {
-  width: 150px;
+  width: 110px;
   height: 150px;
   margin: auto;
   background: transparent;
-   margin-top: 70px;
+   margin-top: -10px;
 }
 
 .animacion-panel img {
