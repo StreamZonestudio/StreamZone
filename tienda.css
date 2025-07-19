@@ -43,8 +43,8 @@ body {
 }
 
 .logo img {
-  width: 80%;  /* se adapta al ancho del sidebar */
-  max-width: 200px; /* evita que exceda visualmente */
+  width: 100%;  /* se adapta al ancho del sidebar */
+  max-width: 300px; /* evita que exceda visualmente */
   height: auto;
   margin-top: 150px; 
   margin-bottom: 5rem;
@@ -56,7 +56,7 @@ body {
   margin: auto;
   margin: 20px auto 0;
   background: transparent;
-   margin-top: 40px;
+   margin-top: 30px;
 }
 
 .animacion-panel img {
