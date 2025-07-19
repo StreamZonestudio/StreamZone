@@ -48,9 +48,8 @@ body {
 .animacion-panel {
   width: 150px;
   height: 150px;
-  margin: auto;
+  margin: 20px auto 0;
   background: transparent;
-   margin-top: 80px;
 }
 
 .animacion-panel img {
