@@ -1,0 +1,500 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: white;
+   overflow-x: hidden;
+}
+.icono-usuario {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.icono-usuario img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.sidebar {
+  width: 250px;
+  max-width: 100vw;
+  height: 100vh;
+  background-color: rgb(251, 255, 0);
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  box-sizing: border-box;
+  overflow-y: auto; /* por si se desborda en resoluciones más bajas */
+}
+
+.footer-sidebar {
+  font-size: 12px;
+  color: black;
+  text-align: center;
+  padding: 10px 5px 0;
+  margin-top: auto;
+}
+
+.logo img {
+  width: 80%;  /* se adapta al ancho del sidebar */
+  max-width: 200px; /* evita que exceda visualmente */
+  height: auto;
+  margin-top: 150px; 
+  margin-bottom: 5rem;
+}
+
+.animacion-panel {
+  width: 110px;
+  height: 150px;
+  margin: auto;
+  margin: 20px auto 0;
+  background: transparent;
+   margin-top: 80px;
+}
+
+.animacion-panel img {
+  width: 100%;
+  height: auto;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  padding: 10px 0;
+  width: 100%;
+  text-align: center;
+  transition: background 0.3s;
+  box-sizing: border-box;
+}
+
+.menu a:hover {
+  background-color: #333;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.fondo-central {
+  margin-left: 250px; /* para dejar espacio al sidebar */
+  width: calc(100% - 250px); /* resto del ancho total sin el sidebar */
+  height: 100px; /* ajusta la altura según lo que desees */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.fondo-central img {
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
+}
+
+.imagen-principal {
+  position: relative;
+  margin-left: 250px; /* deja espacio para el sidebar */
+  height: 45vh;
+  width: calc(100% - 250px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;  /* Cambiado para apilar verticalmente */
+  justify-content: flex-start; /* arriba */
+  background-color: black;
+  padding: 20px; /* para que no quede pegado al borde */
+ 
+}
+
+.imagen-fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0.7; /* para dejar la imagen de fondo atenuada */
+}
+
+.bienvenida {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: white;
+  font-size: 2.5em;
+  font-weight: bold;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+  margin-bottom: 10px;
+}
+
+.bienvenida h1 {
+  margin-top: -100px; /* Reduce el margen superior para subir el texto */
+  margin-bottom: 0;
+}
+
+.bienvenida h2 {
+  margin-top: 120px; /* Reduce el margen superior para subir el texto */
+  margin-bottom: 0;
+}
+
+.bienvenida img {
+  height: 170px;
+  width: auto;
+   margin-top: 40px;
+}
+
+/* Contenedor del texto y botón en columna */
+.contenedor-bienvenida {
+  margin-left: 20px; /* para que esté pegado al panel izquierdo */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* alinea todo a la izquierda */
+  color: white;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+.boton-cargar {   
+  margin-top: -50px;/* quitar márgenes extra */
+  align-self: flex-start; /* pegar a la izquierda */
+   margin-left: 30px; /* para que esté pegado al panel izquierdo */
+}
+
+.boton-cargar button {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+.boton-cargar button:hover {
+  background-color: #ffffff;
+}
+
+.bienvenida,
+.bienvenida img,
+.boton-cargar {
+  opacity: 1 !important;      /* Fuerza opacidad total */
+  background-color: transparent; /* Para que el fondo sea claro, si aplica */
+  filter: none !important;    /* Quita filtros que afecten visibilidad */
+  color: white;               /* El texto en blanco (ajústalo si quieres) */
+  z-index: 10;                /* Para asegurar que estén arriba */
+}
+
+.mas-vendidos {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: black;
+  margin: 20px 0 10px 250px; /* espacio desde la izquierda */
+  padding-bottom: 5px;
+  border-bottom: 4px solid #FFEB3B;
+  width: 1100px; /* fija un ancho más largo para la línea */
+  user-select: none;
+  /* Para mover todo el bloque un poco más a la derecha */
+  padding-left: 13px; /* o usa margin-left si prefieres */
+  text-align: center;
+}
+
+/* 🔸 Versión PC */
+.imagenes-populares {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-left: 279px;
+  margin-top: 15px;
+}
+
+.item-popular {
+  width: calc(20% - 15px); /* ✅ 5 por fila */
+  box-sizing: border-box;
+}
+
+.item-popular img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.item-popular img:hover {
+  transform: scale(1.05);
+}
+
+
+.paginacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  margin-top: 40px;
+  margin-left: 250px; /* espacio para que respete el sidebar */
+}
+
+.botones-paginacion {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  margin-left: 250px; /* Para alinear con sidebar */
+  width: calc(100% - 250px);
+}
+
+.botones-paginacion button {
+  background-color: #FFEB3B;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, background-color 0.3s ease;
+}
+
+.botones-paginacion button:hover {
+  transform: scale(1.05);
+  background-color: #fdd835;
+}
+
+
+@media screen and (max-width: 768px) {
+
+  html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
+
+
+  /* 🔸 Panel amarillo superior */
+  .sidebar {
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(251, 255, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  }
+
+  .logo img {
+    width: 190px;
+    margin: 0;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .menu a {
+    padding: 6px 10px;
+    font-size: 13px;
+    color: rgb(0, 0, 0);
+    border-radius: 15px;
+    text-align: center;
+    min-width: 60px;
+    transition: background-color 0.3s;
+  }
+
+  .menu a:hover {
+    background-color: rgb(48, 48, 48);
+    color: white;
+  }
+
+  .buscador, .footer-sidebar {
+    display: none;
+  }
+
+  /* 🔸 Fondo principal */
+  .imagen-principal {
+    margin: 0;
+    width: 100%;
+    padding: 100px 10px 20px;
+    min-height: 0vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: black;
+     clip-path: inset(0 0 50% 0); /* 🔥 Recorta un 40% desde abajo */
+  }
+
+  .imagen-fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0.7;
+  }
+  .animacion-panel img,
+  .animacion-panel{
+    display: none;
+  }
+
+
+  /* 🔸 Texto de bienvenida */
+  .bienvenida {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    
+  }
+
+  .bienvenida h1,
+  .bienvenida h2 {
+    margin: 0;
+    font-size: 1.1em;
+  }
+  .bienvenida h1 {
+  margin-top: 10px; /* 🔥 esto baja solo el texto */
+}
+ .bienvenida h2 {
+  margin-top: 70px; /* 🔥 esto baja solo el texto */
+}
+
+  .bienvenida img {
+    height: 50px;
+    width: auto;
+  }
+
+  /* 🔸 Título "Tienda" y línea */
+  .mas-vendidos {
+    margin: 15px auto 10px;
+    padding-bottom: 5px;
+    width: 90%;
+    border-bottom: 4px solid #FFEB3B;
+    color: black;
+    text-align: center;
+    font-size: 1.3em;
+    user-select: none;
+     margin-top: -200px; /* 🔥 Antes era 120px */
+    z-index: 2;
+  }
+  
+
+  /* 🔸 Galería de imágenes */
+  .imagenes-populares {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* ✅ 2 por fila en móvil */
+    gap: 8px;
+    margin: auto;
+    margin-left: 10;
+    justify-content: center;
+  }
+  
+
+  .item-popular {
+    width: 80%;
+    margin: auto;
+  }
+
+  .item-popular img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .item-popular img:hover {
+    transform: scale(1.05);
+  }
+
+  .item-popular p {
+    font-size: 9px;
+    color: rgb(2, 2, 2);
+    margin: 3px 0 0;
+  }
+
+  /* 🔸 Paginación más pequeña */
+  .botones-paginacion {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin: 10px 0;
+    width: 100%;
+    z-index: 2;
+  }
+
+  .botones-paginacion button {
+    background-color: #FFEB3B;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    font-size: 11px;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: transform 0.2s, background-color 0.3s;
+  }
+
+  .botones-paginacion button:hover {
+    transform: scale(1.05);
+    background-color: #fdd835;
+  }
+  
+
+}
